@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand — Warm Sienna */
+  --color-brand: #c96442;
+  --color-brand-50: #fdf4f0;
+  --color-brand-100: #fae6dc;
+  --color-brand-200: #f3c9b5;
+  --color-brand-300: #eaa78a;
+  --color-brand-400: #df8565;
+  --color-brand-500: #c96442;
+  --color-brand-600: #ae4f30;
+  --color-brand-700: #8e3e25;
+  --color-brand-800: #72321f;
+  --color-brand-900: #5c291a;
+  --color-brand-950: #30140d;
+
+  /* Green — Sage */
+  --color-green: #5b8c6f;
+  --color-green-50: #f2f7f4;
+  --color-green-100: #e0ece5;
+  --color-green-200: #c2d9cc;
+  --color-green-300: #9bbfab;
+  --color-green-400: #7ba88e;
+  --color-green-500: #5b8c6f;
+  --color-green-600: #487159;
+  --color-green-700: #3b5b48;
+  --color-green-800: #31493b;
+  --color-green-900: #293d32;
+  --color-green-950: #15211b;
+
+  /* Gray — Stone */
+  --color-gray: #87827c;
+  --color-gray-50: #f7f6f5;
+  --color-gray-100: #edece9;
+  --color-gray-200: #dbd8d4;
+  --color-gray-300: #c3bfb9;
+  --color-gray-400: #aaa59e;
+  --color-gray-500: #87827c;
+  --color-gray-600: #6e6a64;
+  --color-gray-700: #5a5752;
+  --color-gray-800: #4a4844;
+  --color-gray-900: #3e3c39;
+  --color-gray-950: #22211f;
+
+  /* Black — Ink */
+  --color-black: #2d2a26;
+  --color-black-50: #96938d;
+  --color-black-100: #8a8780;
+  --color-black-200: #747169;
+  --color-black-300: #5e5b55;
+  --color-black-400: #484541;
+  --color-black-500: #2d2a26;
+  --color-black-600: #1b1916;
+  --color-black-700: #0a0908;
+  --color-black-800: #000000;
+  --color-black-900: #000000;
+  --color-black-950: #000000;
+}
+
+/* Tailwind v4 removed default cursor-pointer on buttons, restore it */
+button,
+[role='button'],
+[type='button'],
+[type='submit'],
+[type='reset'] {
+  cursor: pointer;
+}

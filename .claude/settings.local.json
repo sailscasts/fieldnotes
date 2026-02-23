@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/koo/.claude/skills/waterline/rules/**)",
+      "Read(//Users/koo/.agents/skills/waterline/rules/**)",
+      "Read(//Users/koo/.claude/skills/inertia/rules/**)",
+      "Read(//Users/koo/.agents/skills/inertia/rules/**)",
+      "Read(//Users/koo/.claude/skills/durable-ui/rules/**)",
+      "Read(//Users/koo/.agents/skills/durable-ui/rules/**)",
+      "Read(//Users/koo/.claude/skills/testing/rules/**)",
+      "Read(//Users/koo/.agents/skills/testing/rules/**)",
+      "Read(//Users/koo/.claude/skills/sails/rules/**)",
+      "Read(//Users/koo/.agents/skills/sails/rules/**)"
+    ]
+  }
+}
