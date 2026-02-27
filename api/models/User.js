@@ -31,6 +31,12 @@ module.exports = {
       example: 'mike@sailsjs.com',
       columnName: 'email'
     },
+    tosAcceptedByIp: {
+      type: 'string',
+      description:
+        'The IP address of the user at the time they accepted the terms of service.',
+      columnName: 'tos_accepted_by_ip'
+    },
     emailStatus: {
       type: 'string',
       isIn: ['unverified', 'verified', 'change-requested'],

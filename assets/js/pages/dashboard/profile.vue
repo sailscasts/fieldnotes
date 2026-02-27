@@ -48,15 +48,13 @@ function deleteAccount() {
 </script>
 
 <template>
-  <Head title="Profile | Mellow"></Head>
+  <Head title="Profile | FieldNotes"></Head>
 
-  <div class="mx-auto space-y-8 px-4 md:w-8/12 xl:w-4/12">
-    <section
-      class="rounded-lg bg-gradient-to-b from-brand-50/10 to-white p-6 shadow-md transition-all duration-300 hover:shadow-lg"
-    >
+  <div class="mx-auto space-y-10 px-4 md:w-8/12 xl:w-5/12">
+    <section>
       <header class="mb-6">
-        <h1 class="text-2xl">Profile Information</h1>
-        <p class="mt-2 text-gray-600">
+        <h1 class="text-xl font-bold tracking-tight text-black">Profile Information</h1>
+        <p class="mt-2 text-sm text-gray-500">
           Update your account's profile information and email address.
         </p>
       </header>
@@ -78,12 +76,12 @@ function deleteAccount() {
       </form>
     </section>
 
-    <section
-      class="rounded-lg bg-gradient-to-b from-brand-50/10 to-white p-6 shadow-md transition-all duration-300 hover:shadow-lg"
-    >
+    <hr class="border-gray-200/60" />
+
+    <section>
       <header class="mb-6">
-        <h2 class="text-2xl">Change Password</h2>
-        <p class="mt-2 text-gray-600">
+        <h2 class="text-xl font-bold tracking-tight text-black">Change Password</h2>
+        <p class="mt-2 text-sm text-gray-500">
           Ensure your account is using a long, random password to stay secure.
         </p>
       </header>
@@ -126,12 +124,12 @@ function deleteAccount() {
       </form>
     </section>
 
-    <section
-      class="rounded-lg bg-gradient-to-b from-brand-50/10 to-white p-6 shadow-md transition-all duration-300 hover:shadow-lg"
-    >
+    <hr class="border-gray-200/60" />
+
+    <section>
       <header class="mb-6">
-        <h2 class="text-2xl">Delete Account</h2>
-        <p class="mt-2 text-gray-600">
+        <h2 class="text-xl font-bold tracking-tight text-black">Delete Account</h2>
+        <p class="mt-2 text-sm text-gray-500">
           Once your account is deleted, all of its resources and data will be
           permanently deleted. Before deleting your account, please download any
           data or information that you wish to retain.

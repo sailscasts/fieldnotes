@@ -16,12 +16,12 @@ const disableForgetPasswordButton = computed(() => {
 </script>
 
 <template>
-  <Head title="Forgot password | Mellow"></Head>
+  <Head title="Forgot password | FieldNotes"></Head>
   <section
     class="flex min-h-screen flex-col justify-center bg-gradient-to-b from-brand-50/10 to-[#F9FAFB] text-black sm:items-center"
   >
     <main
-      class="mt-10 bg-white px-4 py-10 text-black sm:w-7/12 sm:rounded-lg sm:px-8 sm:shadow-lg md:w-6/12 lg:w-5/12 xl:w-4/12"
+      class="mt-10 px-6 py-12 text-black sm:w-7/12 sm:px-10 md:w-6/12 lg:w-5/12 xl:w-4/12"
     >
       <section
         class="mb-6 flex flex-col items-center justify-center space-y-2 text-center"
@@ -52,7 +52,7 @@ const disableForgetPasswordButton = computed(() => {
           </defs>
         </svg>
 
-        <h1 class="text-2xl">Forgot password?</h1>
+        <h1 class="text-2xl font-bold tracking-tight">Forgot password?</h1>
         <p class="text-lg text-gray">
           We'll send reset instructions to your email
         </p>

@@ -83,27 +83,22 @@ const statusOptions = [
       Back to entries
     </Link>
 
-    <div class="rounded-lg border border-gray-200 bg-white p-6">
-      <h1 class="mb-6 text-xl font-semibold text-black">New Entry</h1>
+    <div>
+      <h1 class="mb-8 text-xl font-bold tracking-tight text-black">New Entry</h1>
 
-      <form @submit.prevent="submit" class="space-y-5">
+      <form @submit.prevent="submit" class="space-y-6">
         <!-- Type selector -->
         <div>
-          <label class="mb-1.5 block text-sm font-medium text-gray-700">
+          <label class="mb-2 block text-sm font-medium text-gray-500">
             Type
           </label>
-          <div class="flex flex-wrap gap-2">
+          <div class="segmented-control">
             <button
               v-for="option in typeOptions"
               :key="option.value"
               type="button"
               @click="form.type = option.value"
-              class="rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors"
-              :class="
-                form.type === option.value
-                  ? 'border-brand bg-brand-50 text-brand'
-                  : 'border-gray-200 text-gray-600 hover:border-gray-300'
-              "
+              :class="form.type === option.value ? 'active' : ''"
             >
               {{ option.label }}
             </button>
@@ -112,7 +107,7 @@ const statusOptions = [
 
         <!-- Title -->
         <div>
-          <label for="title" class="mb-1.5 block text-sm font-medium text-gray-700">
+          <label for="title" class="mb-2 block text-sm font-medium text-gray-500">
             Title
           </label>
           <input
@@ -122,16 +117,16 @@ const statusOptions = [
             required
             maxlength="200"
             placeholder="What's on your mind?"
-            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            class="w-full rounded-xl border border-gray-200/60 bg-gray-50/80 px-3.5 py-3 text-sm placeholder:text-gray-400 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
           />
-          <p v-if="form.errors.title" class="mt-1 text-sm text-red-500">
+          <p v-if="form.errors.title" class="mt-1.5 text-sm text-red-400">
             {{ form.errors.title }}
           </p>
         </div>
 
         <!-- URL (bookmarks only) -->
         <div v-if="form.type === 'bookmark'">
-          <label for="url" class="mb-1.5 block text-sm font-medium text-gray-700">
+          <label for="url" class="mb-2 block text-sm font-medium text-gray-500">
             URL
           </label>
           <input
@@ -139,9 +134,9 @@ const statusOptions = [
             v-model="form.url"
             type="url"
             placeholder="https://..."
-            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            class="w-full rounded-xl border border-gray-200/60 bg-gray-50/80 px-3.5 py-3 text-sm placeholder:text-gray-400 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
           />
-          <p v-if="form.errors.url" class="mt-1 text-sm text-red-500">
+          <p v-if="form.errors.url" class="mt-1.5 text-sm text-red-400">
             {{ form.errors.url }}
           </p>
         </div>
@@ -149,13 +144,13 @@ const statusOptions = [
         <!-- Status & Priority (tasks only) -->
         <div v-if="form.type === 'task'" class="grid grid-cols-2 gap-4">
           <div>
-            <label for="status" class="mb-1.5 block text-sm font-medium text-gray-700">
+            <label for="status" class="mb-2 block text-sm font-medium text-gray-500">
               Status
             </label>
             <select
               id="status"
               v-model="form.status"
-              class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+              class="apple-select w-full rounded-xl border border-gray-200/60 bg-gray-50/80 px-3.5 py-3 text-sm text-gray-600 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
             >
               <option
                 v-for="option in statusOptions"
@@ -169,14 +164,14 @@ const statusOptions = [
           <div>
             <label
               for="priority"
-              class="mb-1.5 block text-sm font-medium text-gray-700"
+              class="mb-2 block text-sm font-medium text-gray-500"
             >
               Priority
             </label>
             <select
               id="priority"
               v-model="form.priority"
-              class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+              class="apple-select w-full rounded-xl border border-gray-200/60 bg-gray-50/80 px-3.5 py-3 text-sm text-gray-600 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
             >
               <option
                 v-for="option in priorityOptions"
@@ -191,7 +186,7 @@ const statusOptions = [
 
         <!-- Body -->
         <div>
-          <label for="body" class="mb-1.5 block text-sm font-medium text-gray-700">
+          <label for="body" class="mb-2 block text-sm font-medium text-gray-500">
             Body
           </label>
           <textarea
@@ -199,23 +194,23 @@ const statusOptions = [
             v-model="form.body"
             rows="6"
             placeholder="Write your thoughts..."
-            class="w-full resize-y rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            class="w-full resize-y rounded-xl border border-gray-200/60 bg-gray-50/80 px-3.5 py-3 text-sm placeholder:text-gray-400 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
           ></textarea>
-          <p v-if="form.errors.body" class="mt-1 text-sm text-red-500">
+          <p v-if="form.errors.body" class="mt-1.5 text-sm text-red-400">
             {{ form.errors.body }}
           </p>
         </div>
 
         <!-- Tags -->
         <div>
-          <label for="tags" class="mb-1.5 block text-sm font-medium text-gray-700">
+          <label for="tags" class="mb-2 block text-sm font-medium text-gray-500">
             Tags
           </label>
-          <div class="flex flex-wrap items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2">
+          <div class="flex flex-wrap items-center gap-2 rounded-xl border border-gray-200/60 bg-gray-50/80 px-3.5 py-3 transition-all duration-200 focus-within:bg-white focus-within:border-brand/30 focus-within:ring-2 focus-within:ring-brand/10">
             <span
               v-for="(tag, index) in form.tags"
               :key="tag"
-              class="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600"
+              class="inline-flex items-center gap-1 rounded-lg bg-gray-100/80 px-2.5 py-1 text-xs font-medium text-gray-500"
             >
               {{ tag }}
               <button
@@ -232,19 +227,19 @@ const statusOptions = [
               id="tags"
               type="text"
               placeholder="Add a tag..."
-              class="min-w-[120px] flex-1 border-none bg-transparent text-sm placeholder:text-gray-400 focus:outline-none"
+              class="min-w-[120px] flex-1 border-none bg-transparent text-sm placeholder:text-gray-400 focus:outline-none focus:ring-0"
               @keydown.enter.prevent="addTag"
               @keydown.backspace="removeLastTag"
             />
           </div>
-          <p class="mt-1 text-xs text-gray-400">Press Enter to add a tag</p>
+          <p class="mt-1.5 text-xs text-gray-400">Press Enter to add a tag</p>
         </div>
 
         <!-- Submit -->
-        <div class="flex items-center justify-end gap-3 pt-2">
+        <div class="flex items-center justify-end gap-3 pt-4">
           <Link
             href="/entries"
-            class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+            class="rounded-xl border border-gray-200/60 px-5 py-3 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:border-gray-300/60"
           >
             Cancel
           </Link>

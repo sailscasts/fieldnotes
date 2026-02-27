@@ -13,12 +13,12 @@ const { pageTitle, pageHeading, message } = defineProps({
 })
 </script>
 <template>
-  <Head :title="`${pageTitle} | Mellow`"></Head>
+  <Head :title="`${pageTitle} | FieldNotes`"></Head>
   <section
     class="flex min-h-screen flex-col justify-center bg-gradient-to-b from-brand-50/10 to-[#F9FAFB] text-black sm:items-center"
   >
     <main
-      class="mt-10 bg-white px-4 py-10 text-black sm:w-7/12 sm:rounded-lg sm:px-8 sm:shadow-lg md:w-6/12 lg:w-5/12 xl:w-4/12"
+      class="mt-10 px-6 py-12 text-black sm:w-7/12 sm:px-10 md:w-6/12 lg:w-5/12 xl:w-4/12"
     >
       <section
         class="mb-6 flex flex-col items-center justify-center space-y-4 text-center"
@@ -49,13 +49,13 @@ const { pageTitle, pageHeading, message } = defineProps({
           </defs>
         </svg>
 
-        <h1 class="text-2xl">{{ pageHeading }}</h1>
+        <h1 class="text-2xl font-bold tracking-tight">{{ pageHeading }}</h1>
         <p class="text-lg text-gray">
           {{ message }}. Click continue to go to your dashboard.
         </p>
         <Link
           href="/dashboard"
-          class="w-full rounded-md border border-brand bg-brand px-4 py-3 text-white disabled:bg-gray-200/40 disabled:text-gray"
+          class="w-full rounded-xl border border-brand bg-brand px-4 py-3.5 font-medium text-white transition-all duration-200 hover:bg-brand-600 hover:border-brand-600 disabled:opacity-50"
         >
           Continue
         </Link>

@@ -8,13 +8,13 @@ defineOptions({
 </script>
 
 <template>
-  <Head title="Simplify Authentication, Focus on Shipping | Mellow"></Head>
+  <Head title="Simplify Authentication, Focus on Shipping | FieldNotes"></Head>
   <section class="mx-4 mt-20">
     <h1 class="mb-4 text-center text-4xl font-bold text-brand md:text-5xl">
       Simplify Authentication, Focus on Shipping 🚀
     </h1>
     <p class="mx-auto max-w-3xl text-center text-xl text-gray-600">
-      Mellow handles user management, so you can build what matters.
+      FieldNotes handles user management, so you can build what matters.
     </p>
   </section>
   <section class="px-4 py-12 md:mx-auto md:w-10/12 md:px-8 md:py-16">
@@ -120,7 +120,7 @@ defineOptions({
     <article>
       <h3 class="text-xl text-brand md:mb-2 md:text-2xl">Productivity</h3>
       <p class="font-light text-gray md:text-lg">
-        Let Mellow be the starting point of your next SPA. With authentication
+        Let FieldNotes be the starting point of your next SPA. With authentication
         and profile management taken care of, you can focus on your core
         business logic
       </p>
@@ -131,14 +131,14 @@ defineOptions({
       </h3>
       <p class="font-light text-gray md:text-lg">
         Experience effortless user authentication and simplified profile
-        management with Mellow, creating a seamless user journey for developers
+        management with FieldNotes, creating a seamless user journey for developers
         and users.
       </p>
     </article>
     <article>
       <h3 class="text-xl text-brand md:mb-2 md:text-2xl">Profile management</h3>
       <p class="font-light text-gray md:text-lg">
-        Let users manage their profiles with ease using Mellow. It offers a
+        Let users manage their profiles with ease using FieldNotes. It offers a
         simple and secure way to update their name, email address, and password.
       </p>
     </article>
@@ -149,27 +149,27 @@ defineOptions({
     </h2>
     <section class="flex-1">
       <details class="relative border-b border-[#D7D7D7] py-4">
-        <summary class="text-gray md:text-lg">What is Mellow?</summary>
+        <summary class="text-gray md:text-lg">What is FieldNotes?</summary>
         <p class="text-sm text-black md:text-lg">
-          Mellow is the default starter template for The Boring JavaScript
+          FieldNotes is the default starter template for The Boring JavaScript
           Stack. It provides authentication and profile management out of the
           box.
         </p>
       </details>
       <details class="relative border-b border-[#D7D7D7] py-4">
         <summary class="text-gray md:text-lg">
-          How do I get started with Mellow?
+          How do I get started with FieldNotes?
         </summary>
         <p class="text-sm text-black md:text-lg">
-          Chances are you already have scaffolded a new project using Mellow if
+          Chances are you already have scaffolded a new project using FieldNotes if
           you are seeing this. Just open up the project in your editor and start
           coding away.
         </p>
       </details>
       <details class="relative border-b border-[#D7D7D7] py-4">
-        <summary class="text-gray md:text-lg">Can I customize Mellow?</summary>
+        <summary class="text-gray md:text-lg">Can I customize FieldNotes?</summary>
         <p class="text-sm text-black md:text-lg">
-          For sure! All the code in Mellow is open source so you can copy and
+          For sure! All the code in FieldNotes is open source so you can copy and
           paste and customize to your heart's content.
         </p>
       </details>

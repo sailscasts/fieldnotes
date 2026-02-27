@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
   <button
     type="submit"
-    class="relative flex items-center justify-center rounded-md border border-brand bg-brand px-4 py-3 text-white disabled:cursor-not-allowed disabled:border-gray-200/40 disabled:bg-gray-200/40 disabled:text-gray"
+    class="relative flex w-full items-center justify-center rounded-xl border border-brand bg-brand px-4 py-3.5 font-medium text-white transition-all duration-200 hover:bg-brand-600 hover:border-brand-600 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-brand disabled:hover:border-brand"
   >
     <svg
       v-if="processing"

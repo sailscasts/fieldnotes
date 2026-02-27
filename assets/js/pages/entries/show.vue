@@ -11,11 +11,11 @@ const props = defineProps({
 })
 
 const typeBadgeClasses = {
-  note: 'bg-brand-100 text-brand-700',
-  task: 'bg-blue-100 text-blue-700',
-  log: 'bg-gray-100 text-gray-700',
-  bookmark: 'bg-green-100 text-green-700',
-  journal: 'bg-amber-100 text-amber-700'
+  note: 'bg-brand-50 text-brand-600',
+  task: 'bg-blue-50 text-blue-600',
+  log: 'bg-gray-100 text-gray-500',
+  bookmark: 'bg-green-50 text-green-600',
+  journal: 'bg-amber-50 text-amber-600'
 }
 
 const statusLabels = {
@@ -80,35 +80,35 @@ function deleteEntry() {
     </Link>
 
     <!-- Entry content -->
-    <article class="rounded-lg border border-gray-200 bg-white p-6">
+    <article>
       <!-- Metadata bar -->
       <div class="mb-4 flex flex-wrap items-center gap-2">
         <span
-          class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium"
+          class="inline-flex rounded-lg px-2.5 py-1 text-xs font-medium"
           :class="typeBadgeClasses[entry.type]"
         >
           {{ entry.type }}
         </span>
         <span
           v-if="entry.type === 'task' && entry.status"
-          class="inline-flex rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600"
+          class="inline-flex rounded-lg bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500"
         >
           {{ statusLabels[entry.status] }}
         </span>
         <span
           v-if="entry.type === 'task' && entry.priority"
-          class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium"
+          class="inline-flex rounded-lg px-2.5 py-1 text-xs font-medium"
           :class="{
-            'bg-red-100 text-red-700': entry.priority === 'high',
-            'bg-amber-100 text-amber-700': entry.priority === 'medium',
-            'bg-gray-100 text-gray-600': entry.priority === 'low'
+            'bg-red-50 text-red-600': entry.priority === 'high',
+            'bg-amber-50 text-amber-600': entry.priority === 'medium',
+            'bg-gray-50 text-gray-500': entry.priority === 'low'
           }"
         >
           {{ priorityLabels[entry.priority] }}
         </span>
         <span
           v-if="entry.isPinned"
-          class="inline-flex items-center gap-1 rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand"
+          class="inline-flex items-center gap-1 rounded-lg bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand"
         >
           <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9.828.722a.5.5 0 01.354.146l4.95 4.95a.5.5 0 01-.707.707l-.55-.55-3.535 3.536 1.06 4.242a.5.5 0 01-.829.441L7.5 11.121l-4.243 4.243a.5.5 0 11-.707-.707L6.793 10.5l-3.07-3.07a.5.5 0 01.44-.83l4.243 1.061L11.94 4.13l-.55-.55a.5.5 0 01.146-.853z" />
@@ -118,7 +118,7 @@ function deleteEntry() {
       </div>
 
       <!-- Title -->
-      <h1 class="mb-2 text-2xl font-semibold text-black">{{ entry.title }}</h1>
+      <h1 class="mb-2 text-2xl font-bold tracking-tight text-black">{{ entry.title }}</h1>
 
       <!-- Date -->
       <p class="mb-6 text-sm text-gray-400">{{ formatDate(entry.createdAt) }}</p>
@@ -161,7 +161,7 @@ function deleteEntry() {
         <span
           v-for="tag in entry.tags"
           :key="tag"
-          class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
+          class="rounded-lg bg-gray-50 px-3 py-1 text-xs font-medium text-gray-500"
         >
           {{ tag }}
         </span>
@@ -169,23 +169,23 @@ function deleteEntry() {
 
       <!-- Actions -->
       <div
-        class="mt-8 flex items-center gap-3 border-t border-gray-100 pt-4"
+        class="mt-8 flex items-center gap-3 border-t border-gray-100/80 pt-6"
       >
         <Link
           :href="`/entries/${entry.id}/edit`"
-          class="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+          class="rounded-xl border border-gray-200/60 px-4 py-2.5 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:border-gray-300/60"
         >
           Edit
         </Link>
         <button
           @click="togglePin"
-          class="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+          class="rounded-xl border border-gray-200/60 px-4 py-2.5 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:border-gray-300/60"
         >
           {{ entry.isPinned ? 'Unpin' : 'Pin' }}
         </button>
         <button
           @click="deleteEntry"
-          class="rounded-lg border border-red-200 px-3 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50"
+          class="rounded-xl border border-red-200/60 px-4 py-2.5 text-sm font-medium text-red-500 transition-all duration-200 hover:bg-red-50 hover:border-red-300/60"
         >
           Delete
         </button>

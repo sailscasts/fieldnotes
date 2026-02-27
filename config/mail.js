@@ -54,7 +54,7 @@ module.exports.mail = {
    *
    */
   from: {
-    address: 'boring@sailscasts.com',
-    name: 'The Boring JavaScript Stack'
+    address: 'hello@fieldnotes.com',
+    name: 'Fieldy from FieldNotes'
   }
 }

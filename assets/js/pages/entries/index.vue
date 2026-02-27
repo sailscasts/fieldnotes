@@ -62,11 +62,11 @@ const typeLabels = {
 }
 
 const typeBadgeClasses = {
-  note: 'bg-brand-100 text-brand-700',
-  task: 'bg-blue-100 text-blue-700',
-  log: 'bg-gray-100 text-gray-700',
-  bookmark: 'bg-green-100 text-green-700',
-  journal: 'bg-amber-100 text-amber-700'
+  note: 'bg-brand-50 text-brand-600',
+  task: 'bg-blue-50 text-blue-600',
+  log: 'bg-gray-100 text-gray-500',
+  bookmark: 'bg-green-50 text-green-600',
+  journal: 'bg-amber-50 text-amber-600'
 }
 
 const statusLabels = {
@@ -89,26 +89,24 @@ function formatDate(date) {
 
   <section class="mx-auto max-w-4xl px-4">
     <!-- Header -->
-    <div class="mb-6 flex items-center justify-between">
-      <h1 class="text-2xl font-semibold text-black">Entries</h1>
+    <div class="mb-8 flex items-center justify-between">
+      <h1 class="text-2xl font-bold tracking-tight text-black">Entries</h1>
       <Link
         href="/entries/new"
-        class="rounded-lg bg-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600"
+        class="inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-brand-600 hover:shadow-md"
       >
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
         New Entry
       </Link>
     </div>
 
-    <!-- Type Tabs -->
-    <nav class="mb-4 flex gap-1 overflow-x-auto border-b border-gray-200">
+    <!-- Type Tabs — Segmented Control -->
+    <nav class="segmented-control mb-6 overflow-x-auto">
       <button
         @click="setFilter('type', undefined)"
-        class="whitespace-nowrap border-b-2 px-3 py-2 text-sm font-medium transition-colors"
-        :class="
-          !filters.type
-            ? 'border-brand text-brand'
-            : 'border-transparent text-gray-500 hover:text-gray-700'
-        "
+        :class="!filters.type ? 'active' : ''"
       >
         All
       </button>
@@ -116,12 +114,7 @@ function formatDate(date) {
         v-for="(label, key) in typeLabels"
         :key="key"
         @click="setFilter('type', key)"
-        class="whitespace-nowrap border-b-2 px-3 py-2 text-sm font-medium transition-colors"
-        :class="
-          filters.type === key
-            ? 'border-brand text-brand'
-            : 'border-transparent text-gray-500 hover:text-gray-700'
-        "
+        :class="filters.type === key ? 'active' : ''"
       >
         {{ label }}
       </button>
@@ -134,10 +127,10 @@ function formatDate(date) {
           v-model="search"
           type="text"
           placeholder="Search entries..."
-          class="w-full rounded-lg border border-gray-200 bg-white py-2 pl-9 pr-3 text-sm placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+          class="w-full rounded-xl border border-transparent bg-gray-50/80 py-3 pl-10 pr-3 text-sm placeholder:text-gray-400 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
         />
         <svg
-          class="absolute left-3 top-2.5 h-4 w-4 text-gray-400"
+          class="absolute left-3.5 top-3.5 h-4 w-4 text-gray-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -156,7 +149,7 @@ function formatDate(date) {
         v-if="filters.type === 'task'"
         :value="filters.status || ''"
         @change="setFilter('status', $event.target.value || undefined)"
-        class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+        class="apple-select rounded-xl border border-gray-200/60 bg-gray-50/80 px-3 py-3 text-sm text-gray-600 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
       >
         <option value="">All statuses</option>
         <option v-for="(label, key) in statusLabels" :key="key" :value="key">
@@ -168,7 +161,7 @@ function formatDate(date) {
       <select
         :value="filters.sort || 'newest'"
         @change="setFilter('sort', $event.target.value)"
-        class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+        class="apple-select rounded-xl border border-gray-200/60 bg-gray-50/80 px-3 py-3 text-sm text-gray-600 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
       >
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>
@@ -182,11 +175,11 @@ function formatDate(date) {
         v-for="entry in entries"
         :key="entry.id"
         :href="`/entries/${entry.id}`"
-        class="block rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-gray-300 hover:shadow-sm"
+        class="group block rounded-xl bg-white p-5 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
       >
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0 flex-1">
-            <div class="mb-1 flex items-center gap-2">
+            <div class="mb-1.5 flex items-center gap-2">
               <span
                 v-if="entry.isPinned"
                 class="text-brand"
@@ -197,14 +190,14 @@ function formatDate(date) {
                 </svg>
               </span>
               <span
-                class="inline-flex rounded-full px-2 py-0.5 text-xs font-medium"
+                class="inline-flex rounded-lg px-2 py-0.5 text-xs font-medium"
                 :class="typeBadgeClasses[entry.type]"
               >
                 {{ entry.type }}
               </span>
               <span
                 v-if="entry.type === 'task' && entry.status"
-                class="inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600"
+                class="inline-flex rounded-lg bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500"
               >
                 {{ statusLabels[entry.status] || entry.status }}
               </span>
@@ -213,13 +206,13 @@ function formatDate(date) {
             <p v-if="entry.body" class="mt-1 line-clamp-2 text-sm text-gray-500">
               {{ entry.body }}
             </p>
-            <div class="mt-2 flex items-center gap-3 text-xs text-gray-400">
+            <div class="mt-2.5 flex items-center gap-3 text-xs text-gray-400">
               <span>{{ formatDate(entry.createdAt) }}</span>
               <div v-if="entry.tags?.length" class="flex gap-1">
                 <span
                   v-for="tag in entry.tags.slice(0, 3)"
                   :key="tag"
-                  class="rounded bg-gray-100 px-1.5 py-0.5 text-gray-500"
+                  class="rounded-md bg-gray-50 px-1.5 py-0.5 text-gray-500"
                 >
                   {{ tag }}
                 </span>
@@ -230,7 +223,7 @@ function formatDate(date) {
             </div>
           </div>
           <svg
-            class="mt-1 h-4 w-4 flex-shrink-0 text-gray-300"
+            class="mt-1 h-4 w-4 flex-shrink-0 text-gray-300 transition-transform duration-200 group-hover:translate-x-0.5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -249,10 +242,10 @@ function formatDate(date) {
     <!-- Empty State -->
     <div
       v-else
-      class="rounded-lg border-2 border-dashed border-gray-200 py-16 text-center"
+      class="rounded-2xl bg-gray-50/50 py-20 text-center"
     >
       <svg
-        class="mx-auto mb-4 h-12 w-12 text-gray-300"
+        class="mx-auto mb-5 h-14 w-14 text-gray-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -264,13 +257,13 @@ function formatDate(date) {
           d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
         />
       </svg>
-      <h3 class="mb-1 text-lg font-medium text-gray-700">No entries yet</h3>
-      <p class="mb-4 text-sm text-gray-500">
+      <h3 class="mb-2 text-lg font-semibold text-gray-700">No entries yet</h3>
+      <p class="mb-6 text-sm text-gray-400">
         Get started by creating your first entry.
       </p>
       <Link
         href="/entries/new"
-        class="inline-flex rounded-lg bg-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600"
+        class="inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-brand-600 hover:shadow-md"
       >
         Create your first entry
       </Link>
@@ -279,22 +272,22 @@ function formatDate(date) {
     <!-- Pagination -->
     <nav
       v-if="pagination.totalPages > 1"
-      class="mt-6 flex items-center justify-between"
+      class="mt-8 flex items-center justify-between"
     >
       <button
         @click="goToPage(pagination.page - 1)"
         :disabled="pagination.page <= 1"
-        class="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+        class="rounded-xl border border-gray-200/60 px-4 py-2.5 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:border-gray-300/60 disabled:cursor-not-allowed disabled:opacity-40"
       >
         Previous
       </button>
-      <span class="text-sm text-gray-500">
+      <span class="text-sm font-medium text-gray-400">
         Page {{ pagination.page }} of {{ pagination.totalPages }}
       </span>
       <button
         @click="goToPage(pagination.page + 1)"
         :disabled="pagination.page >= pagination.totalPages"
-        class="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+        class="rounded-xl border border-gray-200/60 px-4 py-2.5 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:border-gray-300/60 disabled:cursor-not-allowed disabled:opacity-40"
       >
         Next
       </button>

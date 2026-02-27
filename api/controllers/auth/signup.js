@@ -1,6 +1,5 @@
 module.exports = {
   friendlyName: 'Register',
-
   description: 'Register auth.',
 
   inputs: {
@@ -36,7 +35,7 @@ module.exports = {
   },
 
   fn: async function ({ fullName, email: userEmail, password }) {
-    const email = userEmail.toLowerCase()
+    const email = userEmail.toLowerCase() // normalize
     const emailProofToken = await sails.helpers.strings.random('url-friendly')
     let unverifiedUser
     try {
