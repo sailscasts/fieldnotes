@@ -50,7 +50,7 @@ function deleteAccount() {
 <template>
   <Head title="Profile | FieldNotes"></Head>
 
-  <div class="mx-auto space-y-10 px-4 md:w-8/12 xl:w-5/12">
+  <div class="mx-auto space-y-10 px-4 pt-10 md:w-8/12 xl:w-5/12">
     <section>
       <header class="mb-6">
         <h1 class="text-xl font-bold tracking-tight text-black">Profile Information</h1>

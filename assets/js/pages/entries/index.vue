@@ -87,7 +87,7 @@ function formatDate(date) {
 <template>
   <Head title="Entries | FieldNotes" />
 
-  <section class="mx-auto max-w-4xl px-4">
+  <section class="mx-auto max-w-4xl px-4 pt-10">
     <!-- Header -->
     <div class="mb-8 flex items-center justify-between">
       <h1 class="text-2xl font-bold tracking-tight text-black">Entries</h1>
@@ -102,24 +102,6 @@ function formatDate(date) {
       </Link>
     </div>
 
-    <!-- Type Tabs — Segmented Control -->
-    <nav class="segmented-control mb-6 overflow-x-auto">
-      <button
-        @click="setFilter('type', undefined)"
-        :class="!filters.type ? 'active' : ''"
-      >
-        All
-      </button>
-      <button
-        v-for="(label, key) in typeLabels"
-        :key="key"
-        @click="setFilter('type', key)"
-        :class="filters.type === key ? 'active' : ''"
-      >
-        {{ label }}
-      </button>
-    </nav>
-
     <!-- Search & Filters -->
     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
       <div class="relative flex-1">
@@ -127,7 +109,7 @@ function formatDate(date) {
           v-model="search"
           type="text"
           placeholder="Search entries..."
-          class="w-full rounded-xl border border-transparent bg-gray-50/80 py-3 pl-10 pr-3 text-sm placeholder:text-gray-400 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
+          class="w-full rounded-xl border border-transparent bg-gray-50/80 py-3 pl-10 pr-3 text-sm placeholder:text-gray-400 focus:border-brand/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/10"
         />
         <svg
           class="absolute left-3.5 top-3.5 h-4 w-4 text-gray-400"
@@ -149,7 +131,7 @@ function formatDate(date) {
         v-if="filters.type === 'task'"
         :value="filters.status || ''"
         @change="setFilter('status', $event.target.value || undefined)"
-        class="apple-select rounded-xl border border-gray-200/60 bg-gray-50/80 px-3 py-3 text-sm text-gray-600 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
+        class="apple-select rounded-xl border border-gray-200/60 bg-gray-50/80 px-3 py-3 text-sm text-gray-600 focus:border-brand/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/10"
       >
         <option value="">All statuses</option>
         <option v-for="(label, key) in statusLabels" :key="key" :value="key">
@@ -161,13 +143,33 @@ function formatDate(date) {
       <select
         :value="filters.sort || 'newest'"
         @change="setFilter('sort', $event.target.value)"
-        class="apple-select rounded-xl border border-gray-200/60 bg-gray-50/80 px-3 py-3 text-sm text-gray-600 focus:bg-white focus:border-brand/30 focus:outline-none focus:ring-2 focus:ring-brand/10"
+        class="apple-select rounded-xl border border-gray-200/60 bg-gray-50/80 px-3 py-3 text-sm text-gray-600 focus:border-brand/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/10"
       >
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>
         <option value="title">Title A-Z</option>
       </select>
     </div>
+
+    <!-- Type Filters -->
+    <nav class="mb-6 flex flex-wrap gap-2">
+      <button
+        @click="setFilter('type', undefined)"
+        class="rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
+        :class="!filters.type ? 'bg-black text-white' : 'text-gray-500 hover:text-black'"
+      >
+        All
+      </button>
+      <button
+        v-for="(label, key) in typeLabels"
+        :key="key"
+        @click="setFilter('type', key)"
+        class="rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
+        :class="filters.type === key ? 'bg-black text-white' : 'text-gray-500 hover:text-black'"
+      >
+        {{ label }}
+      </button>
+    </nav>
 
     <!-- Entries List -->
     <div v-if="entries.length" class="space-y-3">

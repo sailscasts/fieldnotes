@@ -32,7 +32,7 @@ const disableSignupButton = computed(() => {
 <template>
   <Head title="Sign up | FieldNotes"></Head>
   <section
-    class="flex min-h-screen flex-col justify-center bg-gradient-to-b from-brand-50/10 to-[#F9FAFB] text-black sm:items-center"
+    class="bg-linear-to-b from-brand-50/10 flex min-h-screen flex-col justify-center to-[#F9FAFB] text-black sm:items-center"
   >
     <main
       class="mt-10 px-6 py-12 text-black sm:w-7/12 sm:px-10 md:w-6/12 lg:w-5/12 xl:w-4/12"
@@ -47,14 +47,29 @@ const disableSignupButton = computed(() => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect x="8" y="0" width="22" height="27" rx="3" fill="currentColor" opacity="0.3" />
-            <rect x="0" y="6" width="22" height="27" rx="3" fill="currentColor" />
+            <rect
+              x="8"
+              y="0"
+              width="22"
+              height="27"
+              rx="3"
+              fill="currentColor"
+              opacity="0.3"
+            />
+            <rect
+              x="0"
+              y="6"
+              width="22"
+              height="27"
+              rx="3"
+              fill="currentColor"
+            />
           </svg>
           <span class="text-lg font-semibold tracking-tight">fieldnotes</span>
         </Link>
 
         <h1 class="text-2xl font-bold tracking-tight">Create your account</h1>
-        <p class="text-lg text-gray">
+        <p class="text-gray text-lg">
           Welcome! Please enter your details to sign up
         </p>
       </section>
@@ -151,7 +166,7 @@ const disableSignupButton = computed(() => {
       </form>
       <GoogleButton />
     </main>
-    <footer class="my-8 text-center text-gray">
+    <footer class="text-gray my-8 text-center">
       <p>
         Already have an account?
         <Link href="/login" class="text-brand hover:underline">Login</Link>

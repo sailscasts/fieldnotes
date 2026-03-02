@@ -12,7 +12,7 @@ module.exports = {
 
   exits: {
     success: {
-      responseType: 'redirect'
+      responseType: 'inertiaRedirect'
     },
     notFound: {
       responseType: 'notFound'

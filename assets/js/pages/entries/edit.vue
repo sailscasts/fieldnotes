@@ -54,7 +54,7 @@ const statusOptions = [
 <template>
   <Head :title="`Edit: ${entry.title} | FieldNotes`" />
 
-  <section class="mx-auto max-w-2xl px-4">
+  <section class="mx-auto max-w-2xl px-4 pt-10">
     <!-- Back link -->
     <Link
       :href="`/entries/${entry.id}`"

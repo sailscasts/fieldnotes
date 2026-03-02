@@ -1,6 +1,5 @@
 module.exports = {
   friendlyName: 'Forgot password',
-
   description:
     'Send a password recovery notification to the user with the specified email address.',
 
@@ -24,7 +23,7 @@ module.exports = {
   },
 
   fn: async function ({ email }) {
-    const userExists = await User.count({ email: this.req.session.userEmail })
+    const userExists = await User.count({ email })
     if (!userExists) {
       return '/check-email'
     }

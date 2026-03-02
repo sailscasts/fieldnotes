@@ -10,7 +10,7 @@ const loggedInUser = page.props.loggedInUser
 </script>
 <template>
   <Head title="Dashboard | FieldNotes"></Head>
-  <section class="mx-auto max-w-4xl px-4">
+  <section class="mx-auto max-w-4xl px-4 pt-10">
     <section>
       <h3 class="mb-2 text-xl font-bold tracking-tight text-brand">
         Welcome, {{ loggedInUser.fullName }}
